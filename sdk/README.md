@@ -1,2 +1,2 @@
 # About
-This folder contains SDK sample documentation.
+This folder contains an excerpt from the Comverse ONE SDK Guide.
