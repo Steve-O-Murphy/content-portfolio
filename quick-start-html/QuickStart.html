@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Origin Storage QuickStart</title>
+    <!-- You can link to a CSS file here if needed -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- All visible content goes inside the body tag -->
+
+        <h2>Getting Started</h2>
+        <p>This information provides the basic steps for uploading content/objects to Origin Storage.</p>
+        <p>Using Origin Storage is simple. Follow 4 easy steps to get started:</p>
+        <a href="#choose-ingest">1. Choose your ingest method</a>
+        <br>
+        <a href="#choose-rep">2. Choose your Replication and Location Policies</a>
+        <br>
+        <a href="#upload">3. Upload Content</a>
+        <br>
+        <a href="#retrieve">4. Retrieve or Share Content</a>
+
+
+
+
+
+        <h2 id="choose-ingest">1. Choose your ingest method</h2>
+        <p>There are multiple ways to ingest content using Limelight Storage. Choose from the options below:</p>
+        <ul>
+            <li><span style="font-weight: bold;"></span>Orchestrate Storage: This is the easiest and most expeditious way to get started. If you don't like using a command line, this is for you.</li>
+                 <ul>
+                    <li>
+                        <span>Go to:</span> <a href="https://storage.limelight.com/" target="_blank"><span>https://storage.limelight.com</span></a>
+                    </li>
+                    <li>
+                        For login use your shortname/account info received in your Limelight Welcome Letter.
+                    </li>
+                </ul>
+            </li>
+            <li><span style="font-weight: bold;">FTP, SFTP, SCP, Rsync. You can use these methods directly from the command line. Please see the <i><MadCap:variable name="Non-Localizable Terms - Limelight.Product Name - Storage" />  Overview</i> or</span> <i><MadCap:variable name="Non-Localizable Terms - Limelight.Product Name - Storage" />  Best Practices</i> <span>guides for more information.</span></li>
+            <li style="margin-top: 6pt;"><span style="font-weight: bold;">Java FTP and API client (including Multipart support):</span> <a href="https://github.com/Orchestrate-Cloud-Storage/StorageClient" target="_blank"><span>https://github.com/Orchestrate-Cloud-Storage/StorageClient</span></a></li>
+            <li style="margin-top: 6pt;"><span style="font-weight: bold;"><MadCap:variable name="Non-Localizable Terms - Limelight.Product Name - Storage" class="italicText" /></span> <span style="font-weight: bold;">API</span><span style="font-weight: bold;">s</span><span style="font-weight: bold;">:</span> Use <MadCap:variable name="Non-Localizable Terms - Limelight.Product Name - Storage" class="italicText" />  directly from your application. Refer to the <MadCap:variable name="Non-Localizable Terms - Limelight.Product Name - Storage" class="italicText" />  API Guide. Includes Multipart support.</li>
+        </ul>
+        <ul>
+            <li>
+                <span style="font-weight: bold;">Aspera FASP high speed file transfer</span> is supported.
+            </li>
+        </ul>
+
+        <div class="note">
+            <p>
+                Whenever possible we recommend that customers leverage the Application Programming Interface (API) due to its feature-rich ingest workflow and its superior performance.
+            </p>
+        </div>
+        <p>&#160;</p>
+
+
+        <h2 id="choose-rep">2. Choose your Replication and Location Policies</h2>
+
+        <p>Origin Storage is pre-configured with replication policies attached to your directories that determine the locations where you content will be stored. </p>
+        <ul>
+            <li>The standard policies provide geographic distribution and redundancy across the applicable region or regions. </li>
+            <li>The standard weighted policies provide geographic distribution in the primary region and at least one copy of the file in the secondary region. </li>
+            <li>The extended policy provides geographic distribution in EACH of the individual regions (US, EU, APAC). </li>
+            <li>The infrequent access policies provide full availability and durability in a single region and POP, for a lower cost storage option in use cases that are not as performance sensitive.</li>
+        </ul>
+        <p>When content is uploaded to a directory, objects will be distributed according to the directory and its associated policy.</p>
+
+
+        <table style="border-collapse: collapse;margin-left: 0;margin-right: auto;"">
+            <col style="width: 167pt;" class="TableStyle-element_tablestyle-Column-Column1" />
+            <col style="width: 171pt;" class="TableStyle-element_tablestyle-Column-Column2" />
+            <col style="width: 140pt;" class="TableStyle-element_tablestyle-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-element_tablestyle-Head-Header1">
+
+      <tr class="TableStyle-element_tablestyle-Head-Header1">
+                    <th class="TableStyle-element_tablestyle-HeadE-Column1-Header1">
+                        <p>Regional Replication Policies</p>
+                    </th>
+                    <th class="TableStyle-element_tablestyle-HeadF-Column2-Header1">
+                        <p>Policy Name</p>
+                    </th>
+                    <th class="TableStyle-element_tablestyle-HeadD-Column2-Header1">
+                        <p>File Locations</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-element_tablestyle-Body-Body1">
+                    <td class="TableStyle-element_tablestyle-BodyE-Column1-Body1">
+                        <p>Standard US</p>
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-element_tablestyle-BodyF-Column2-Body1">
+                        <p>standard_us</p>
+                    </td>
+                    <td class="TableStyle-element_tablestyle-BodyD-Column2-Body1">
+                        <p>Regional US</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-element_tablestyle-Body-Body1">
+                    <td class="TableStyle-element_tablestyle-BodyE-Column1-Body1">
+                        <p>Standard EU</p>
+                    </td>
+                    <td class="TableStyle-element_tablestyle-BodyF-Column2-Body1">
+                        <p>standard_eu</p>
+                    </td>
+                    <td class="TableStyle-element_tablestyle-BodyD-Column2-Body1">
+                        <p>Regional EU</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-element_tablestyle-Body-Body1">
+                    <td class="TableStyle-element_tablestyle-BodyE-Column1-Body1">
+                        <p>Standard APAC</p>
+                    </td>
+                    <td class="TableStyle-element_tablestyle-BodyF-Column2-Body1">
+                        <p>standard_ap</p>
+                    </td>
+                    <td class="TableStyle-element_tablestyle-BodyD-Column2-Body1">
+                        <p>Regional APAC</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-element_tablestyle-Body-Body1">
+                    <td class="TableStyle-element_tablestyle-BodyE-Column1-Body1">
+                        <p>Standard US, EU, APAC</p>
+                    </td>
+                    <td class="TableStyle-element_tablestyle-BodyF-Column2-Body1">
+                        <p>standard_us_eu_ap</p>
+                    </td>
+                    <td class="TableStyle-element_tablestyle-BodyD-Column2-Body1">
+                        <p>Multi-region US, EU, APAC</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-element_tablestyle-Body-Body1">
+                    <td class="TableStyle-element_tablestyle-BodyE-Column1-Body1">
+                        <p>Standard Weighted US, EU</p>
+                    </td>
+                    <td class="TableStyle-element_tablestyle-BodyF-Column2-Body1">
+                        <p>standard_us_eu</p>
+                    </td>
+                    <td class="TableStyle-element_tablestyle-BodyD-Column2-Body1">
+                        <p>Weighted Multi-region US, EU</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-element_tablestyle-Body-Body1">
+                    <td class="TableStyle-element_tablestyle-BodyE-Column1-Body1">
+                        <p>Standard Weighted US, APAC</p>
+                    </td>
+                    <td class="TableStyle-element_tablestyle-BodyF-Column2-Body1">
+                        <p>standard_us_ap</p>
+                    </td>
+                    <td class="TableStyle-element_tablestyle-BodyD-Column2-Body1">
+                        <p>Weighted Multi-region US, APAC</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-element_tablestyle-Body-Body1">
+                    <td class="TableStyle-element_tablestyle-BodyE-Column1-Body1">
+                        <p>Standard Weighted EU, US</p>
+                    </td>
+                    <td class="TableStyle-element_tablestyle-BodyF-Column2-Body1">
+                        <p>standard_eu_us</p>
+                    </td>
+                    <td class="TableStyle-element_tablestyle-BodyD-Column2-Body1">
+                        <p>Weighted Multi-region EU, US</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-element_tablestyle-Body-Body1">
+                    <td class="TableStyle-element_tablestyle-BodyE-Column1-Body1">Standard Weighted EU, APAC</td>
+                    <td class="TableStyle-element_tablestyle-BodyF-Column2-Body1">standard_eu_ap</td>
+                    <td class="TableStyle-element_tablestyle-BodyD-Column2-Body1">Weighted Multi-region EU, APAC</td>
+                </tr>
+                <tr class="TableStyle-element_tablestyle-Body-Body1">
+                    <td class="TableStyle-element_tablestyle-BodyE-Column1-Body1">Standard Weighted APAC, US</td>
+                    <td class="TableStyle-element_tablestyle-BodyF-Column2-Body1">standard_ap_us</td>
+                    <td class="TableStyle-element_tablestyle-BodyD-Column2-Body1">Weighted Multi-region APAC, US</td>
+                </tr>
+                <tr class="TableStyle-element_tablestyle-Body-Body1">
+                    <td class="TableStyle-element_tablestyle-BodyE-Column1-Body1">Standard Weighted APAC, EU</td>
+                    <td class="TableStyle-element_tablestyle-BodyF-Column2-Body1">standard_ap_eu</td>
+                    <td class="TableStyle-element_tablestyle-BodyD-Column2-Body1">Weighted Multi-region APAC, EU</td>
+                </tr>
+                <tr class="TableStyle-element_tablestyle-Body-Body1">
+                    <td class="TableStyle-element_tablestyle-BodyB-Column1-Body1">Extended US, EU, APAC</td>
+                    <td class="TableStyle-element_tablestyle-BodyC-Column2-Body1">extended_us_eu_ap</td>
+                    <td class="TableStyle-element_tablestyle-BodyA-Column2-Body1">Extended Multi-region US, EU, APAC</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <div class="note">
+            <p>You cannot assign policies yourself. Please contact your Account Manager for assistance.</p>
+        </div>
+        <p><span>You can create directories using the <MadCap:variable name="Non-Localizable Terms - Limelight.Product Name - Storage" class="italicText" /> <MadCap:variable name="Orchestrate Storage Variables.PortalName" class="italicText" /> or vie the <MadCap:variable name="Non-Localizable Terms - Limelight.Product Name - Storage" class="italicText" /> APIs:</span>
+        </p>
+        <ul>
+            <li>makeDir</li>
+            <li>makeDir2</li>
+            <li>/post/directory </li>
+        </ul>
+        <p class="SpaceAfter">Any directories you create will inherit the characteristics (and policies) of the directory in which they are created
+        </p>
+        <div class="note">
+            <p>In the Orchestrate Storage Portal, if you drag and drop a file from one directory to another, then the transferred file retains its original policy (the policy assigned to it by its original directory). However, the transferred file's URL changes to reflect the new directory.  Note also that it can take a bit of time before all replication policies are applied to the transferred file</p>
+        </div>
+        <p style="font-weight: bold; margin-bottom:0px;">Customer Portal Workspace</p>
+        <p>If you create your own directory from scratch at the root, it will not inherit any of the pre-defined policies. Instead, it will inherit system default policies. Please see the Origin Storage Overview Guide for further details.</p>
+
+
+<h2 id="upload">3. Upload Content</h2>
+<p>To upload content using the Origin Storage Customer Portal:</p>
+<ul>
+    <li>Simply drag and drop files from Windows Explorer or Mac Finder to the bottom pane of the Origin Storage Customer Portal titled “Upload Queue” within the workspace (see figure below). Before you do so, be sure you have selected the Directory in the left hand pane, titled “Folder Browser”, to which you would like the file copied.Or, alternatively, choose the “Add Files” option from the Upload Queue window at bottom, and follow the prompts.</li>
+    <li>Alternatively, choose the “Add Files” option from the Upload Queue window at bottom, and follow the prompts.</li>
+</ul>
+
+        <p style="margin-top:0px;">
+            <img src="./Resources/Images/Customer-Portal-Workspace.JPG" style="width: 482px;height: 226px;" />
+        </p>        
+
+
+        
+        <p class="note">
+            You may want to review the section 2. Choose your Replication and Location Policies, before you begin copying files, as it will help you decide where you would like files to reside in. 
+        </p>
+
+
+        <p>
+            If you would like to upload content using another method (API, FTP, etc.), see the links to the guides in 1. Choose your ingest method.
+        </p>
+
+
+<h1 id="retrieve">4. Retrieve or Share Content</h2>
+
+
+
+        <p>You have several options for retrieving and sharing content:</p>
+        <ul>
+            <li>Use the <span style="font-style: italic;"> Origin Storoage Customer Portal</span>
+                <ul>
+                    <li>To retrieve content, open the Origin Storage Customer Portal and click the downward arrow to the left of the file name that you wish to download:</li>
+                    <p><img src="./Resources/Images/file-and-download-arrow.JPG" /> </p>
+                    <li>To share content via email, right-click on any file name and choose the "Share Link" option: </li>
+                </ul>
+            </li>
+        </ul>
+        <blockquote>
+            <blockquote>
+                <p>
+                    <img src="./Resources/Images/File-Popup-Menu.JPG" />
+                </p>
+                <p>From the Share Link dialog (below) you can cut and paste the URL into an email to share the file.</p>
+                <p>
+                    <img src="./Resources/Images/Share-Link-Dialog.JPG" style="width: 278px;height: 68px;" />
+                </p>
+            </blockquote>
+        </blockquote>
+        <ul>
+            <li>To download the content via a CDN, consult your CDN provider. Origin Storage can act as origin storage for any CDN. </li>
+        </ul>
+
+
+
+
+
+
+</body>
+</html>
