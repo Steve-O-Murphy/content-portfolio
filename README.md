@@ -1,3 +1,3 @@
 # Content Portfolio
 
-This repo contains writing samples.
+This repository contains my writing samples.
