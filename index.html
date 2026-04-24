@@ -1,17 +1,124 @@
 <!DOCTYPE html>
-<html>
-  <body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steve Murphy | Technical Writing</title>
 
-<h1>Steve Murphy's Writing Samples</h1>
+  <!-- Modern font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-<ul>
-  <li>
-    <a href="sdk/Client-SDK-New.pdf" target="_blank">
-      API Guide
-    </a>
-  </li>
-</ul>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --border: #1f2937;
+    }
 
-    
-  </body>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #020617, #0f172a);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      transition: transform 0.15s ease, border 0.15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #020617;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.15s ease;
+    }
+
+    .button:hover {
+      opacity: 0.85;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>Stevie</h1>
+    <p class="subtitle">
+      Technical Writer · Developer-Focused Docs · APIs that don’t fight back
+    </p>
+
+    <div class="card">
+      <h2>API Guide</h2>
+      <p>End-to-end REST API documentation with real-world examples and clear onboarding flow.</p>
+      <a class="button" href="samples/api-guide.pdf" target="_blank">View PDF</a>
+    </div>
+
+    <div class="card">
+      <h2>Architecture Overview</h2>
+      <p>System design walkthrough with component relationships and data flow explained.</p>
+      <a class="button" href="samples/architecture.pdf" target="_blank">View PDF</a>
+    </div>
+
+    <footer>
+      © 2026 Stevie · Built with GitHub Pages
+    </footer>
+
+  </div>
+</body>
 </html>
